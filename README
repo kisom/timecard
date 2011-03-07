@@ -1,0 +1,26 @@
+timecard.py:
+    a simple timecard / clocking program.
+
+    i was inspired by a ruby program i saw on hacker news (INSERT REF HERE).
+
+    what does it do better and why rewrite it?
+    basically, i wanted the ability to keep track of which project i was
+    and the ability to report statistics per-project.
+
+
+usage spec:
+    tc <project>    clock in or out of project
+    tc ?            am i clocked in?
+    tc --time       basic statistics on time spent
+    tc --report <week|month|year> 
+                    report statistics based on time period
+    tc -h           prints usage
+    tc --log        show timecard log
+
+implemented:
+    tc <project>
+    tc ?
+    tc --time <project>
+    tc --log
+
+
