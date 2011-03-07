@@ -179,9 +179,16 @@ def time_report(project = None, period = None):
         else:
             end = get_time_from_logline(log[i + 1])
 
-        elapsed += (end - start)
+        if period and start < period:
+            if end > period:
+                elapsed += (end - period)
+            else:
+                next
+        else:
+            elapsed += (end - start)
 
-    print 'Time elapsed:', str(elapsed)
+    if project == None: project = 'all projects'
+    print 'Time spent on %s: %s' % (project, str(elapsed))
 
 
 def print_status():
@@ -192,11 +199,14 @@ def print_status():
            
 
 def main(command = None):
-    if 'clock' == command:      clock()
-    elif 'status' == command:   print_status()
-    elif 'time' == command:     time_report(project = project)
-    elif 'log' == command:      print_log()
-    elif None == command:       clock()
+    if 'clock' == command:              clock()
+    elif 'status' == command:           print_status()
+    elif 'time' == command:             time_report(project = project)
+    elif 'log' == command:              print_log()
+    elif None == command:               clock()
+    elif re.match('^report ', command):
+        (command, period) = command.split()
+        time_report(project = project, period = get_period(period))
     else:
         print 'invalid command!'
         usage()
@@ -237,6 +247,8 @@ if __name__ == '__main__':
 
         if args and not project:
             project = args[-1]
+        elif 'time' == cmd and not project:
+            project = None
         else:
             project = get_last_project()
 
