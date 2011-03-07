@@ -6,8 +6,6 @@ import os
 import re
 import sys
 
-import pdb
-
 logfile         = os.path.join(os.getenv('HOME'), 'timecard.log')
 project         = None
 clocked         = None              # True if clocked in
@@ -80,7 +78,6 @@ def valid_log():
 
 
 def print_log():
-    
     if valid_log():
         for line in get_log():
             print line
@@ -214,8 +211,8 @@ def main(command = None):
 
 
 def usage():
+    # TODO
     sys.exit(0)
-
 
 
 if __name__ == '__main__':
