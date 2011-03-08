@@ -1,7 +1,9 @@
 timecard.py:
     a simple timecard / clocking program.
 
-    i was inspired by a ruby program i saw on hacker news (INSERT REF HERE).
+    i was inspired by a ruby program i saw on hacker news,
+    artem's "C.rb, A Time Clocker For Your Next Project" (available at
+    http://artem.posterous.com/crb-a-time-clocker-for-your-next-project).
 
     what does it do better and why rewrite it?
     basically, i wanted the ability to keep track of which project i was

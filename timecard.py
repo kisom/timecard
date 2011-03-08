@@ -195,9 +195,17 @@ def print_status():
         print 'You are not clocked in.'
            
 
+def conky_status():
+    if get_state():
+        print 'in (%s)' % (project, )
+    else:
+        print 'out'
+
+
 def main(command = None):
     if 'clock' == command:              clock()
     elif 'status' == command:           print_status()
+    elif 'conky' == command:            conky_status()
     elif 'time' == command:             time_report(project = project)
     elif 'log' == command:              print_log()
     elif None == command:               clock()
@@ -221,7 +229,7 @@ if __name__ == '__main__':
         project = get_last_project()
         main()
     else:
-        (opts, args) = getopt.getopt(sys.argv[1:], 'h', [ 'report=', 'time', 'log' ])
+        (opts, args) = getopt.getopt(sys.argv[1:], 'h', [ 'report=', 'time', 'log', 'conky' ])
         cmd          = None
 
         if not opts:
@@ -241,6 +249,8 @@ if __name__ == '__main__':
                 cmd = 'time'
             if opt == '-h':
                 usage()
+            if opt == '--conky':
+                cmd = 'conky'
 
         if args and not project:
             project = args[-1]
