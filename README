@@ -13,6 +13,7 @@ timecard.py:
 usage spec:
     tc <project>    clock in or out of project
     tc ?            am i clocked in?
+    tc --conky      conky-friendly version of '?' command
     tc --time       basic statistics on time spent
     tc --report <week|month|year> 
                     report statistics based on time period
