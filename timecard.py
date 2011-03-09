@@ -139,7 +139,7 @@ def get_last_project():
         log = get_log()[-1]
 
     if not None == log:
-        project = re.search('on project ([\w\s]+) at ', log).group(1)
+        project = re.search('on project ([\w-_\s]+) at ', log).group(1)
     
     return project
 
