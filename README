@@ -9,6 +9,10 @@ timecard.py:
     basically, i wanted the ability to keep track of which project i was
     and the ability to report statistics per-project.
 
+    caveats:
+    projects cannot have a dash in their name because of the way dates
+    are parsed. this is a known bug and will hopefully be addressed.
+
 
 usage spec:
     tc <project>    clock in or out of project
