@@ -241,6 +241,20 @@ def main(command = None):
 
 
 def usage():
+    usage_msg   = """
+usage:
+    TC <project>    clock in or out of project
+    TC ?            am i clocked in?
+    TC --conky      conky-friendly version of '?' command
+    TC --time       basic statistics on time spent
+    TC --report <week|month|year> 
+                    report statistics based on time period
+    TC --projects   list projects worked on
+    TC -h           prints usage
+    TC --log        show timecard log
+"""
+    print re.sub('TC', os.path.basename(sys.argv[0]), usage_msg)
+    
     # TODO
     sys.exit(0)
 

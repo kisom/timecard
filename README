@@ -21,6 +21,7 @@ usage spec:
     tc --time       basic statistics on time spent
     tc --report <week|month|year> 
                     report statistics based on time period
+    tc --projects   list projects worked on
     tc -h           prints usage
     tc --log        show timecard log
 
