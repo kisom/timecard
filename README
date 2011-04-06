@@ -25,10 +25,3 @@ usage spec:
     tc -h           prints usage
     tc --log        show timecard log
 
-implemented:
-    tc <project>
-    tc ?
-    tc --time <project>
-    tc --log
-
-
