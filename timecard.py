@@ -199,6 +199,21 @@ def print_status():
         print 'You are clocked in on project %s.' % project
     else:
         print 'You are not clocked in.'
+
+def print_projects():
+    regex   = 'clocked [a-z]{2,3} on project (\w+) at'
+    log = get_log()
+    projects = []
+
+    print 'project list: '
+
+    for line in log:
+        match = re.search(regex, line)
+        if match:
+            project = match.group(1)
+            if not project in projects:
+                projects.append(project)
+                print '\t', project
            
 
 def conky_status():
@@ -214,6 +229,7 @@ def main(command = None):
     elif 'conky' == command:            conky_status()
     elif 'time' == command:             time_report(project = project)
     elif 'log' == command:              print_log()
+    elif 'projects' == command:         print_projects()
     elif None == command:               clock()
     elif re.match('^report ', command):
         (command, period) = command.split()
@@ -235,7 +251,8 @@ if __name__ == '__main__':
         project = get_last_project()
         main()
     else:
-        (opts, args) = getopt.getopt(sys.argv[1:], 'h', [ 'report=', 'time', 'log', 'conky' ])
+        (opts, args) = getopt.getopt(sys.argv[1:], 'h', [ 'report=', 'time'
+                                     'log', 'conky', 'projects' ])
         cmd          = None
 
         if not opts:
@@ -257,6 +274,8 @@ if __name__ == '__main__':
                 usage()
             if opt == '--conky':
                 cmd = 'conky'
+            if opt == '--projects':
+                cmd = 'projects'
 
         if args and not project:
             project = args[-1]
