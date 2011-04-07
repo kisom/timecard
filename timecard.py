@@ -265,7 +265,7 @@ if __name__ == '__main__':
         project = get_last_project()
         main()
     else:
-        (opts, args) = getopt.getopt(sys.argv[1:], 'h', [ 'report=', 'time'
+        (opts, args) = getopt.getopt(sys.argv[1:], 'h', [ 'report=', 'time',
                                      'log', 'conky', 'projects' ])
         cmd          = None
 
